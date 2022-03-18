@@ -15,7 +15,6 @@ public class Game {
         player2 = new Player(Space.O, 2);
     }
 
-
     public void Play() {
         //Clean this up so that it handles repetition and ends the game when its over.
 
@@ -58,19 +57,39 @@ public class Game {
             gameBoard.Draw();
         }
 
-
-
-
     }
 
     private boolean CheckForWin() {
         //Implement this method.
-        return false;
+
+        if (gameBoard.spacesText[0].equals(gameBoard.spacesText[1]) && gameBoard.spacesText[2].equals(gameBoard.spacesText[1])){
+            return true;
+        } else if (gameBoard.spacesText[3].equals(gameBoard.spacesText[4]) && gameBoard.spacesText[5].equals(gameBoard.spacesText[3])){
+            return true;
+        } else if (gameBoard.spacesText[6].equals(gameBoard.spacesText[7]) && gameBoard.spacesText[8].equals(gameBoard.spacesText[7])){
+            return true;
+        } else if (gameBoard.spacesText[0].equals(gameBoard.spacesText[3]) && gameBoard.spacesText[6].equals(gameBoard.spacesText[3])){
+            return true;
+        } else if (gameBoard.spacesText[1].equals(gameBoard.spacesText[4]) && gameBoard.spacesText[7].equals(gameBoard.spacesText[4])){
+            return true;
+        } else if (gameBoard.spacesText[2].equals(gameBoard.spacesText[5]) && gameBoard.spacesText[8].equals(gameBoard.spacesText[5])){
+            return true;
+        } else if (gameBoard.spacesText[0].equals(gameBoard.spacesText[4]) && gameBoard.spacesText[8].equals(gameBoard.spacesText[4])){
+            return true;
+        } else if (gameBoard.spacesText[2].equals(gameBoard.spacesText[4]) && gameBoard.spacesText[6].equals(gameBoard.spacesText[4])){
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
-    private boolean IsFilled(){
-        //Implement this method.
-        return false;
+    private boolean IsFilled() {
+        for (int i = 0; i < 9; i++) {
+            if (gameBoard.spaces[i] == Space.EMPTY){
+                return false;
+            }
+        }
+        return true;
     }
-
 }
